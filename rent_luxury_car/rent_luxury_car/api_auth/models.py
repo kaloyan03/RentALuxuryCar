@@ -43,7 +43,7 @@ class RentCarUserManager(BaseUserManager):
 
 class RentCarUserModel(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(
-
+        unique=True,
     )
 
     is_staff = models.BooleanField(
@@ -54,6 +54,6 @@ class RentCarUserModel(AbstractBaseUser, PermissionsMixin):
         auto_created=True,
     )
 
-    USERNAME_FIELD = email
+    USERNAME_FIELD = "email"
 
     objects = RentCarUserManager
