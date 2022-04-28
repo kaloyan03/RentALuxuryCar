@@ -1,5 +1,6 @@
 from time import strftime
 
+from django.core.validators import MinLengthValidator, MaxValueValidator, MinValueValidator
 from django.db import models
 
 from django.contrib.auth.models import User
@@ -27,3 +28,44 @@ class RentCarUserModel(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = "email"
 
     objects = RentCarUserManager()
+
+
+class Profile(models.Model):
+    FIRST_NAME_MIN_LENGTH = 2
+    FIRST_NAME_MAX_LENGTH = 30
+
+    LAST_NAME_MIN_LENGTH = 2
+    LAST_NAME_MAX_LENGTH = 30
+
+    AGE_MIN_VALUE = 18
+    AGE_MAX_VALUE = 100
+
+    first_name = models.CharField(
+        max_length=FIRST_NAME_MAX_LENGTH,
+        validators=(
+            MinLengthValidator(FIRST_NAME_MIN_LENGTH),
+        )
+    )
+
+    last_name = models.CharField(
+        max_length=LAST_NAME_MAX_LENGTH,
+        validators=(
+            MinLengthValidator(LAST_NAME_MIN_LENGTH),
+        )
+    )
+
+    profile_picture = models.ImageField(
+        upload_to='profile_pictures',
+    )
+
+    age = models.IntegerField(
+        validators=(
+            MinValueValidator(AGE_MIN_VALUE),
+            MaxValueValidator(AGE_MAX_VALUE),
+        )
+    )
+
+    user = models.OneToOneField(
+        RentCarUserModel,
+        on_delete=models.CASCADE,
+    )
