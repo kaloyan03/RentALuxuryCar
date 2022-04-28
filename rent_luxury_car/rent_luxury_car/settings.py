@@ -43,11 +43,19 @@ INSTALLED_APPS = [
 
     # Third party apps vvv
     'rest_framework',
+    'rest_framework.authtoken',
 
     # apps
     'rent_luxury_car.auth_app',
 
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # <-- And here
+    ],
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
