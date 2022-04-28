@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     # apps
-    'rent_luxury_car.api_auth',
+    'rent_luxury_car.auth_app',
 
 ]
 
@@ -138,4 +138,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'api_auth.RentCarUserModel'
+AUTH_USER_MODEL = 'auth_app.RentCarUserModel'

@@ -1,11 +1,5 @@
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.hashers import make_password
-from django.db import models
-
-from django.contrib.auth.models import User
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
-
-# Create your models here.
 
 
 class RentCarUserManager(BaseUserManager):
@@ -39,21 +33,3 @@ class RentCarUserManager(BaseUserManager):
             raise ValueError("Superuser must have is_superuser=True.")
 
         return self._create_user(email, password, **extra_fields)
-
-
-class RentCarUserModel(AbstractBaseUser, PermissionsMixin):
-    email = models.EmailField(
-        unique=True,
-    )
-
-    is_staff = models.BooleanField(
-        default=False,
-    )
-
-    date_created = models.DateTimeField(
-        auto_created=True,
-    )
-
-    USERNAME_FIELD = "email"
-
-    objects = RentCarUserManager
