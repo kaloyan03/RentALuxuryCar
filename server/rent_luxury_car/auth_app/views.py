@@ -25,8 +25,6 @@ class RegisterUserView(CreateAPIView):
         headers = self.get_success_headers(serializer.data)
         token, created = Token.objects.get_or_create(user=serializer.instance)
         user = UserModel.objects.get(email=serializer.data['email'])
-        user.set_password(user.password)
-        user.save()
         return Response({'token': token.key, 'user_id': user.id, 'email': user.email},
                         status=status.HTTP_201_CREATED, headers=headers)
 
