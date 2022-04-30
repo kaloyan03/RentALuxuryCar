@@ -9,7 +9,18 @@ const registerUser = (data) => {
         },
         body: JSON.stringify(data),
     })
-    .then(response => response.json())
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+        return Promise.reject(response);
+    })
+    .catch(response => {
+        response.json()
+        .then(error => {
+            alert(error.message);
+        })
+    })
 }
 
 const loginUser = (data) => {
@@ -20,7 +31,18 @@ const loginUser = (data) => {
         },
         body: JSON.stringify(data),
     })
-    .then(response => response.json())
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+        return Promise.reject(response);
+    })
+    .catch(response => {
+        response.json()
+        .then(error => {
+            alert(error.message);
+        })
+    })
 }
 
 
