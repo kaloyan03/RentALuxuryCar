@@ -8,11 +8,17 @@ from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from rent_luxury_car.auth_app.models import Profile
 from rent_luxury_car.auth_app.serializers import UserSerializer
 
 
 UserModel = get_user_model()
 
+CLIENT_SERVER_FIELD_NAMINGS_MAPPER = {
+    'first_name': 'First Name',
+    'last_name': 'Last Name',
+    'age': 'Age',
+}
 
 class RegisterUserView(CreateAPIView):
     queryset = UserModel.objects.all()
@@ -20,14 +26,21 @@ class RegisterUserView(CreateAPIView):
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
-        headers = self.get_success_headers(serializer.data)
-        token, created = Token.objects.get_or_create(user=serializer.instance)
-        user = UserModel.objects.get(email=serializer.data['email'])
-        return Response({'token': token.key, 'user_id': user.id, 'email': user.email},
-                        status=status.HTTP_201_CREATED, headers=headers)
+        if serializer.is_valid():
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            token, created = Token.objects.get_or_create(user=serializer.instance)
+            user = UserModel.objects.get(email=serializer.data['email'])
+            return Response({'token': token.key, 'user_id': user.id, 'email': user.email},
+                            status=status.HTTP_201_CREATED, headers=headers)
 
+        else:
+            errors = ''
+            for key, value in serializer.errors['profile'].items():
+                errors += f"{CLIENT_SERVER_FIELD_NAMINGS_MAPPER[key]}: {value[0]}\n"
+
+            return Response(data={"message": errors},
+                     status=status.HTTP_400_BAD_REQUEST)
 
 class LoginUserView(APIView):
     serializer_class = UserSerializer
@@ -38,12 +51,12 @@ class LoginUserView(APIView):
         password = request.data.get('password')
 
         if not (email or password):
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+            return Response(data={"message": "Email or password field cannot be empty"}, status=status.HTTP_400_BAD_REQUEST)
 
         check_if_exists = UserModel.objects.filter(email=email)
 
         if not check_if_exists:
-            return Response(status=status.HTTP_404_NOT_FOUND)
+            return Response(data={"message": "User with that email does not exists"}, status=status.HTTP_404_NOT_FOUND)
 
         user = authenticate(email=email, password=password)
 
@@ -58,4 +71,4 @@ class LoginUserView(APIView):
             }
 
             return Response(data=data, status=status.HTTP_201_CREATED)
-        return Response(status=status.HTTP_400_BAD_REQUEST)
+        return Response(data={"message": "Incorrect email or password"}, status=status.HTTP_400_BAD_REQUEST)
