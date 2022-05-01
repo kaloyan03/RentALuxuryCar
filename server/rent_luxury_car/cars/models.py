@@ -1,3 +1,5 @@
+import datetime
+
 from django.core.validators import MinLengthValidator, MinValueValidator, MaxValueValidator
 from django.db import models
 
@@ -8,6 +10,10 @@ class Car(models.Model):
 
     MODEL_MAX_LENGTH = 40
     MODEL_MIN_LENGTH = 3
+
+    YEAR_CREATED_MAX_VALUE = datetime.datetime.now().year
+    YEAR_CREATED_MIN_VALUE = 2000
+
 
     COUPE_TYPE_CHOICES = (
         ('Hatchback', 'Hatchback'),
@@ -58,6 +64,17 @@ class Car(models.Model):
         validators=(
             MinLengthValidator(MODEL_MIN_LENGTH),
         )
+    )
+
+    year_created = models.IntegerField(
+        validators=(
+            MaxValueValidator(YEAR_CREATED_MAX_VALUE),
+            MinValueValidator(YEAR_CREATED_MIN_VALUE),
+        ),
+    )
+
+    image = models.ImageField(
+        upload_to='cars_images',
     )
 
     coupe_type = models.CharField(
