@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth-api/', include('rent_luxury_car.auth_app.urls')),
+    path('cars-api/', include('rent_luxury_car.cars.urls')),
 ]
