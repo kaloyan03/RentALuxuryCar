@@ -1,8 +1,12 @@
+import './Header.css';
+
 import { Link } from 'react-router-dom';
 
 function Header() {
     return (
-        <header>
+        <header className='site-header'>
+        <h2>RentLuxuryCar</h2>
+
         <nav>
           <ul>
             <li>

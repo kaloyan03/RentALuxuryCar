@@ -1,6 +1,7 @@
+import './Cars.css';
 import { useState, useEffect } from 'react';
-import carService from '../services/carService';
-import Car from './Car';
+import carService from '../../services/carService';
+import Car from '../Car/Car.js';
 
 
 function Cars() {
@@ -19,7 +20,7 @@ function Cars() {
         <section className="cars-page">
             <h2 className="cars-page-title">Cars available for rent</h2>
 
-            <ul className="cars-page-list-cars">
+            <ul className="cars-page-cars-list">
                 {cars.map(c => <Car key={c.id} car={c}></Car>)}
             </ul>
         </section>

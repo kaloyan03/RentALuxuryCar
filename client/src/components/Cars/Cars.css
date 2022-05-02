@@ -1,0 +1,7 @@
+.cars-page-cars-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    gap: 8rem;
+    justify-content: space-around;
+}

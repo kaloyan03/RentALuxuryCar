@@ -1,9 +1,12 @@
-import { Routes, Route, Link } from "react-router-dom";
-import Header from "./components/Header";
+import './App.css';
 
-import Login from "./components/Login";
-import Register from "./components/Register";
-import Cars from "./components/Cars";
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header/Header.js";
+
+import Login from "./components/Login/Login.js";
+import Register from "./components/Register/Register.js";
+import Cars from "./components/Cars/Cars.js";
+import Footer from './components/Footer/Footer.js';
 
 function App() {
   return (
@@ -16,34 +19,13 @@ function App() {
           </Route>
           <Route path="/register" element={<Register />}>
           </Route>
-        </Routes>      
+        </Routes>
+        <Footer></Footer>      
     </div>
   );
 }
 
-function Home() {
-  return (
-    <div>
-      <h2>Home</h2>
-    </div>
-  );
-}
 
-function About() {
-  return (
-    <div>
-      <h2>About</h2>
-    </div>
-  );
-}
-
-function Dashboard() {
-  return (
-    <div>
-      <h2>Dashboard</h2>
-    </div>
-  );
-}
 
 
 export default App;

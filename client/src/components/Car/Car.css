@@ -1,0 +1,42 @@
+.car-list-item {
+    background-color: white;
+    padding: 10px 20px;
+    border: 3px solid var(--site-dark-green);
+    width: 400px;
+}
+
+.car-list-item:hover {
+    box-shadow: 2px 4px 6px -2px var(--site-green);
+}
+
+.car-list-item-image img{
+    width: 100%;
+}
+
+.car-list-item-image {
+    width: 380px;
+}
+
+.car-list-item-year {
+    display: inline-block;
+    background-color: var(--site-dark-green);
+    color: white;
+    padding: 5px;
+    margin: 10px 0;
+}
+
+.car-list-item-information-btn {
+    background-color: var(--site-green);
+    width: 400px;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    padding: 10px;
+    font-size: 17px;
+}   
+
+.car-list-item-information-btn:hover {
+    cursor: pointer;
+    background-color: var(--site-dark-green);
+}   
+
