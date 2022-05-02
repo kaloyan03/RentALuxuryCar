@@ -10,7 +10,7 @@ function App() {
     <div className="site-wrapper">
 <Header></Header>
 <Routes>
-          <Route path="/cars" element={<Cars />}>
+          <Route path="/" element={<Cars />}>
           </Route>
           <Route path="/login" element={<Login />}>
           </Route>
