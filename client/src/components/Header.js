@@ -6,6 +6,10 @@ function Header() {
         <nav>
           <ul>
             <li>
+              <Link to="/">Cars</Link>
+            </li>
+
+            <li>
               <Link to="/login">Login</Link>
             </li>
             
