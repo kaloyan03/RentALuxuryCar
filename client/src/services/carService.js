@@ -13,3 +13,15 @@ const getOne = (id) => {
     })
     .then(response => response.json())
 }
+
+const getImage = () =>  {
+    return fetch("http://127.0.0.1:8000/media/cars_images/BMW_560_image.jpg")
+    .then(response => response.blob())
+}
+
+
+export default {
+    getAll,
+    getOne,
+    getImage,
+}
