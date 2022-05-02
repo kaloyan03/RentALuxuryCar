@@ -20,7 +20,7 @@ function Cars() {
             <h2 className="cars-page-title">Cars available for rent</h2>
 
             <ul className="cars-page-list-cars">
-                {cars.map(c => <Car car={c}></Car>)}
+                {cars.map(c => <Car key={c.id} car={c}></Car>)}
             </ul>
         </section>
     );
