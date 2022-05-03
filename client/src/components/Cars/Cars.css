@@ -5,3 +5,10 @@
     gap: 8rem;
     justify-content: space-around;
 }
+
+.cars-page-title {
+    text-align: center;
+    margin: 36px;
+    letter-spacing: 4px;
+    font-size: 38px;
+}

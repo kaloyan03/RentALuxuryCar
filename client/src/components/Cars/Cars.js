@@ -18,7 +18,7 @@ function Cars() {
 
     return(
         <section className="cars-page">
-            <h2 className="cars-page-title">Cars available for rent</h2>
+            <h2 className="cars-page-title">Rent a car</h2>
 
             <ul className="cars-page-cars-list">
                 {cars.map(c => <Car key={c.id} car={c}></Car>)}
