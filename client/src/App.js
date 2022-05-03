@@ -12,7 +12,8 @@ function App() {
   return (
     <div className="site-wrapper">
 <Header></Header>
-<Routes>
+        <main>
+        <Routes>
           <Route path="/" element={<Cars />}>
           </Route>
           <Route path="/login" element={<Login />}>
@@ -20,6 +21,7 @@ function App() {
           <Route path="/register" element={<Register />}>
           </Route>
         </Routes>
+        </main>
         <Footer></Footer>      
     </div>
   );
