@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import './Register.css';
 import authService from '../../services/authService.js';
+import { useNavigate } from 'react-router-dom';
+
 
 
 function Register() {
+    const navigate = useNavigate();
+
     let [email, setEmail] = useState('');
     let [password, setPassword] = useState('');
     let [repeatPassword, setRepeatPassword] = useState('');
@@ -55,6 +59,7 @@ function Register() {
         authService.registerUser(({ email, password, profile }))
             .then(user => {
                 localStorage.setItem('user', JSON.stringify(user));
+                navigate('/');
             })
 
         setFirstName('');

@@ -27,13 +27,17 @@
 }
 
 .car-list-item-information-btn {
+    display: inline-block;
     background-color: var(--site-green);
-    width: 400px;
+    width: 375px;
     color: white;
     border: none;
     border-radius: 2px;
     padding: 10px;
     font-size: 17px;
+    letter-spacing: 2px;
+    text-align: center;
+    text-decoration: none;
 }   
 
 .car-list-item-information-btn:hover {

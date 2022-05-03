@@ -1,4 +1,5 @@
 import './Car.css';
+import { Link } from 'react-router-dom';
 
 function Car({
     car,
@@ -13,7 +14,7 @@ function Car({
             <img src={car.image}></img>
             </article>
 
-            <button className='car-list-item-information-btn'>Information</button>
+            <Link to={`/cars/${car.id}`} className='car-list-item-information-btn'>Information</Link>
         </li>
     );
 

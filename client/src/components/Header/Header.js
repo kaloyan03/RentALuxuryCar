@@ -1,6 +1,6 @@
 import './Header.css';
 
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { isAuthenticated, clearLocalStorage } from '../../utils.js';
 
@@ -20,7 +20,7 @@ function Header() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Cars</Link>
+              <Link to="/cars">Cars</Link>
             </li>
 
 

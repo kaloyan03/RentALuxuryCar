@@ -6,6 +6,7 @@ import Header from "./components/Header/Header.js";
 import Login from "./components/Login/Login.js";
 import Register from "./components/Register/Register.js";
 import Cars from "./components/Cars/Cars.js";
+import CarDetails from './components/CarDetails/CarDetails.js';
 import Footer from './components/Footer/Footer.js';
 
 function App() {
@@ -14,7 +15,9 @@ function App() {
 <Header></Header>
         <main>
         <Routes>
-          <Route path="/" element={<Cars />}>
+          <Route path="/cars" element={<Cars />}>
+          </Route>
+          <Route path="/cars/:id" element={<CarDetails/>}>
           </Route>
           <Route path="/login" element={<Login />}>
           </Route>

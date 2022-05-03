@@ -8,7 +8,7 @@ const getAll = () => {
 }
 
 const getOne = (id) => {
-    return fetch(`${baseUrl}/cars-api/${id}`, {
+    return fetch(`${baseUrl}/cars-api/${id}/`, {
         method: 'GET',
     })
     .then(response => response.json())
