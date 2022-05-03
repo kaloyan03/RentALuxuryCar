@@ -1,8 +1,10 @@
 import './Login.css';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import authService from '../../services/authService.js';
 
 function Login() {
+    const navigate = useNavigate();
     let [email, setEmail] = useState('');
     let [password, setPassword] = useState('');
 
@@ -21,6 +23,7 @@ function Login() {
         authService.loginUser(({ email, password }))
             .then(user => {
                 localStorage.setItem('user', JSON.stringify(user));
+                navigate('/');
             })
 
         setEmail('');
