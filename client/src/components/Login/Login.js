@@ -42,13 +42,13 @@ function Login() {
                 </article>
                 <input type='submit' value='Login' />
             </form> */}
-           <form className="login-form">
+           <form className="login-form" onSubmit={handleFormSubmit}>
                 <h1>Log in</h1>
-                            <input type="text" name="email" placeholder="E-mail" className='input-field'/>
-                            <input type="password" name="password" placeholder="Password" className='input-field'/>
+                            <input type="text" name="email" placeholder="E-mail" className='input-field' value={email} onChange={handleEmailChange} />
+                            <input type="password" name="password" placeholder="Password" className='input-field' value={password} onChange={handlePasswordChange} />
 
-                <p class="login-page-register">Haven't got an account? <a href="">Register</a></p>
-                <p class="forgot_password">Forgot your password? <a href="">Reset Your Password</a></p>
+                <p className="login-page-register">Haven't got an account? <a href="">Register</a></p>
+                <p className="forgot_password">Forgot your password? <a href="">Reset Your Password</a></p>
 
                 <input type="submit" name="login_submit" value="Log in"/>
             </form>

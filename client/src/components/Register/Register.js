@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './Register.css';
 import authService from '../../services/authService.js';
 
 
@@ -67,11 +68,7 @@ function Register() {
 
     return (
         <section className='register-page'>
-            <h2 className="register-page-title">
-                Register
-            </h2>
-
-            <form onSubmit={handleFormSubmit}>
+            {/* <form onSubmit={handleFormSubmit}>
                 <article className='input-group'>
                     <label htmlFor='register-first-name'>First Name:</label>
                     <input id='register-first-name' type='text' value={firstName} onChange={handleFirstNameChange} />
@@ -103,6 +100,24 @@ function Register() {
                 </article>
 
                 <input type='submit' value='Register' />
+            </form> */}
+
+            <form className="register-form" onSubmit={handleFormSubmit}>
+            <h2 className="register-page-title">
+                Register
+            </h2>
+                <input id='register-first-name' type='text' placeholder='First Name' value={firstName} onChange={handleFirstNameChange} className='input-field' />
+                <input id='register-last-name' type='text' placeholder='Last Name' value={lastName} onChange={handleLastNameChange} className='input-field' />
+                <input id='register-age' type='number' placeholder='Age' value={age} onChange={handleAgeChange} className='input-field' />
+                <input id='register-email' type='text' placeholder='Email' value={email} onChange={handleEmailChange} className='input-field' />
+                <input id='register-password' type='password' placeholder='Password' value={password} onChange={handlePasswordChange} className='input-field' />
+                <input id='register-repeat-password' type='password' placeholder='Repeat Password' value={repeatPassword} onChange={handleRepeatPasswordChange} className='input-field' />
+
+
+                <p className="register-page-login">Got an account? <a href="">Login</a></p>
+                <p className="forgot_password">Forgot your password? <a href="">Reset Your Password</a></p>
+
+                <input type="submit" name="register_submit" value="Register"/>
             </form>
         </section>
     );

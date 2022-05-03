@@ -1,24 +1,9 @@
-/* .login-form {
-    background-color: white;
-    width: 400px;
-    margin: 10% auto;
-    padding: 16px;
-}
-
-
-.login-form .input-group {
-    margin: 12px 0px;
-}
-
-.login-form .input-group input{
-    font-size: 16px;
-} */
-
 *:focus {
     outline: none;
 }
 
-.login-page {
+
+.register-page {
     margin: 5% auto;
     width: 550px;
     background: #FFF;
@@ -26,25 +11,29 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.login-page .login-form {
+.register-page .register-form {
     box-sizing: border-box;
     padding: 40px;
 }
 
-.login-page h1 {
+.register-page h2 {
     margin: 0 0 20px 0;
     font-weight: 300;
     font-size: 28px;
     color: var(--site-dark-green);
 }
 
-
-.login-page .forgot_password a,
-.got-profile-aside a {
+.register-page a {
+    text-decoration: none;
     color: blue;
 }
 
-.login-page .got-profile-aside {
+.register-page .register-page-login,
+.register-page .forgot_password {
+    margin: 10px 0;
+}
+
+.register-page .got-profile-aside {
     margin-bottom: 5px;
 }
 
@@ -68,7 +57,7 @@
     transition: 0.2s ease;
 }
 
-.login-form input[type="submit"] {
+.register-form input[type="submit"] {
     margin-top: 15px;
     height: 32px;
     padding: 8px 16px;
@@ -83,18 +72,8 @@
     cursor: pointer;
 }
 
-.login-form input[type="submit"]:hover {
+.register-form input[type="submit"]:hover {
     opacity: 0.8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     transition: 0.1s ease;
-}
-
-.login-page a {
-    text-decoration: none;
-    color: blue;
-}
-
-.login-page .login-page-register,
-.login-page .forgot_password {
-    margin: 10px 0;
 }
