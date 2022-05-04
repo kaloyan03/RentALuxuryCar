@@ -117,3 +117,7 @@ class Car(models.Model):
             MaxValueValidator(HORSEPOWER_MAX_VALUE),
         )
     )
+
+    is_rented = models.BooleanField(
+        default=False,
+    )
