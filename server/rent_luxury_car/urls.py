@@ -22,4 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth-api/', include('rent_luxury_car.auth_app.urls')),
     path('cars-api/', include('rent_luxury_car.cars.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('rents-api/', include('rent_luxury_car.rents.urls')),
+
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

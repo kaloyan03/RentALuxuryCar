@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     # apps
     'rent_luxury_car.auth_app',
     'rent_luxury_car.cars',
+    'rent_luxury_car.rents',
 
 ]
 
