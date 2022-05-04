@@ -2,6 +2,7 @@ import './App.css';
 
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header.js";
+import { Navigate } from 'react-router-dom';
 
 import Login from "./components/Login/Login.js";
 import Register from "./components/Register/Register.js";
@@ -15,6 +16,10 @@ function App() {
 <Header></Header>
         <main>
         <Routes>
+          <Route path="/" element={
+              <Navigate to='/cars'></Navigate>
+            }>
+          </Route>
           <Route path="/cars" element={<Cars />}>
           </Route>
           <Route path="/cars/:id" element={<CarDetails/>}>
