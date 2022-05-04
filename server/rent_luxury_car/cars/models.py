@@ -77,6 +77,9 @@ class Car(models.Model):
         upload_to='cars_images',
     )
 
+    description = models.TextField(
+    )
+
     coupe_type = models.CharField(
         choices=COUPE_TYPE_CHOICES,
         max_length=COUPE_TYPE_CHOICES_MAX_LENGTH,
