@@ -121,3 +121,7 @@ class Car(models.Model):
     is_rented = models.BooleanField(
         default=False,
     )
+
+
+    def __str__(self):
+        return f"{self.brand} {self.model}; Rented - {self.is_rented}"
