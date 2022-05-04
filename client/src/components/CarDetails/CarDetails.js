@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import carService from '../../services/carService';
+import RentCar from '../RentCar/RentCar';
 import './CarDetails.css';
 
 function CarDetails() {
@@ -45,6 +46,9 @@ function CarDetails() {
             <article className='car-image'>
                 <img src={car.image}></img>
             </article>
+
+
+            <RentCar car={car}></RentCar>
         </section>
     );
 }
