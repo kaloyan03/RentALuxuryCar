@@ -9,11 +9,11 @@
     margin-bottom: 16px;
 }
 
-.car-details-page .car-image img{
+.car-details-page .car-image-and-rent img{
     width: 100%;
 }
 
-.car-details-page .car-image {
+.car-details-page .car-image-and-rent {
     display: inline-block;
     width: 55%;
     vertical-align: top;
@@ -60,3 +60,4 @@
 .car-details-page .car-specifications-content p {
     margin: 5px 0;
 }
+

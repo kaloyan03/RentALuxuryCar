@@ -43,12 +43,11 @@ function CarDetails() {
                 </article>
             </article>
 
-            <article className='car-image'>
+            <article className='car-image-and-rent'>
                 <img src={car.image}></img>
+
+                <RentCar car={car}></RentCar>
             </article>
-
-
-            <RentCar car={car}></RentCar>
         </section>
     );
 }
