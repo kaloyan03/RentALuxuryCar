@@ -2,7 +2,7 @@ const baseUrl = 'http://localhost:8000';
 
 
 const registerUser = (data) => {
-    return fetch(`${baseUrl}/auth-api/register/`, {
+    return fetch(`${baseUrl}/api/auth/register/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ const registerUser = (data) => {
 }
 
 const loginUser = (data) => {
-    return fetch(`${baseUrl}/auth-api/login/`, {
+    return fetch(`${baseUrl}/api/auth/login/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

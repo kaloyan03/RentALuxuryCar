@@ -20,8 +20,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('auth-api/', include('rent_luxury_car.auth_app.urls')),
-    path('cars-api/', include('rent_luxury_car.cars.urls')),
-    path('rents-api/', include('rent_luxury_car.rents.urls')),
+    path('api/auth/', include('rent_luxury_car.auth_app.urls')),
+    path('api/cars/', include('rent_luxury_car.cars.urls')),
+    path('api/rents/', include('rent_luxury_car.rents.urls')),
 
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
