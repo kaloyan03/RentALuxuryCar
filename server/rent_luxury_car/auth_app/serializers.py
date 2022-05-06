@@ -11,7 +11,7 @@ class ProfileSerializer(serializers.ModelSerializer):
         fields = ('first_name', 'last_name', 'age')
 
 
-class UserSerializer(serializers.ModelSerializer):
+class CreateUserSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer(required=True)
 
     class Meta:
@@ -19,24 +19,31 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('email', 'password', 'profile')
 
     def create(self, validated_data):
-        password = validated_data.pop('password')
-        user = UserModel.objects.create(
+        user = UserModel(
             email=validated_data['email'],
-            password=password,
         )
 
-        user.set_password(password)
+        user.set_password(validated_data['password'])
         user.save()
 
         profile_data = validated_data.pop('profile')
 
-        profile = Profile.objects.create(
+        Profile.objects.create(
             first_name=profile_data['first_name'],
             last_name=profile_data['last_name'],
             age=profile_data['age'],
             user=user,
         )
 
-        profile.save()
-
         return user
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        data.pop('password')
+        return data
+
+
+class LoginUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserModel
+        fields = ('email', 'password')
